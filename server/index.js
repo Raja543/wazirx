@@ -24,7 +24,7 @@ app.use(
 // Middleware
 app.use(express.json());
 
-app.use((err, req, res, ) => {
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Internal Server Error");
 });
