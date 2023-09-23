@@ -2,10 +2,12 @@ const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const app = express();
-const port = 4000;
+require("dotenv").config();
 
-const url =
-  "mongodb+srv://rajakumarmahto61:1RgwRyRDSBekAu7I@wazirxdata.3psbww1.mongodb.net/?retryWrites=true&w=majority"; // Change this URL to your MongoDB server
+const mongoURI = process.env.MONGO_URI;
+const port = process.env.PORT || 4000;
+
+const url = `${mongoURI}`;
 const dbName = "wazirx-all";
 const collectionName = "tickers";
 app.use(cors());
