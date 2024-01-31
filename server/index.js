@@ -57,7 +57,10 @@ cron.schedule("*/2 * * * *", async () => {
     }
 
     // Connect to MongoDB Atlas
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
     try {
       await client.connect();
@@ -85,7 +88,10 @@ cron.schedule("*/2 * * * *", async () => {
 app.get("/getTickers", async (req, res) => {
   try {
     // Connect to MongoDB Atlas
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
     try {
       await client.connect();
@@ -115,7 +121,10 @@ app.get("/getTickers", async (req, res) => {
 
 app.get("/getDocuments", async (req, res) => {
   try {
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
     try {
       await client.connect();
